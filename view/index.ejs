@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+<h1 class="section-title">My Blogs</h1>
+<section class="blog-cards">
+    <% if (!data || data.length === 0) { %>
+        <h2>No Blogs Available</h2>
+    <% } else { for(var i=0;i<data.length;i++){%>
+        <a class="blog-card" href="/blog/<%= data[i].id%>">
+            <h2>Blog</h2>
+            <p><%= data[i].heading %></p>
+            <div class="blog-actions">
+               <form action="/edit/<%= data[i].id %>" method="get">
+                    <button type="submit" class="edit-btn">Edit</button>
+                </form>
+                <form action="/delete/<%= data[i].id %>" method="post">
+                    <button class="delete-btn">Delete</button>
+                </form>
+            </div>
+        </a>
+    <% } }%>
+</section>
+<%- include("partials/footer.ejs") %>

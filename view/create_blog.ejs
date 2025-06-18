@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+<div class="create-blog-container">
+    <h1 class="section-title"><%= isEdit ? "Edit Blog" : "Create Blog" %></h1>
+    
+    <form class="create-blog-form" action="<%= isEdit ? '/update/' + id : '/submit' %>" method="POST">
+        <label for="blog-heading">Blog Heading</label>
+        <input type="text" id="blog-heading" name="blog-heading" value="<%= isEdit ? data.heading : '' %>" required>
+
+        <label for="blog-intro">Introduction</label>
+        <input type="text" id="blog-intro" name="blog-intro" value="<%= isEdit ? data.introduction : '' %>" required>
+
+        <label for="blog-contents">Contents</label>
+        <textarea id="create-blog-form-contents" name="blog-contents" required><%= isEdit ? data.contents : '' %></textarea>
+
+        <label for="blog-conclusion">Conclusion</label>
+        <input type="text" id="blog-conclusion" name="blog-conclusion" value="<%= isEdit ? data.conclusion : '' %>" required>
+
+        <button type="submit" class="create-blog-btn"><%= isEdit ? "Update Blog" : "Submit Blog" %></button>
+    </form>
+</div>
+<%- include("partials/footer.ejs") %>
