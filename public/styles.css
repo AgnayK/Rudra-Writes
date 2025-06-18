@@ -1,0 +1,362 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f9f9f9;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    padding-top: 70px; /* Adjust for fixed header height */
+}
+
+html,body.index-page, body.login-page {
+    overflow-y: hidden;
+}
+
+body.blog-page {
+    overflow-y: auto !important;
+}
+
+
+header {
+    background: #222;
+    color: #fff;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: 'Cinzel Decorative', cursive, serif;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+    margin: 0 0 0 10rem;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #ff9800;
+}
+
+main {
+    flex: 1;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: block;
+    overflow-x: hidden; /* Prevent horizontal scrolling in main */
+}
+
+.blog-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 3.5rem;
+    flex-wrap: wrap; /* Allow wrapping to avoid horizontal scroll */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: hidden;
+    margin-bottom: 2rem;
+    height: auto;
+}
+
+.blog-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 2rem 1.5rem;
+    text-decoration: none;
+    color: #222;
+    transition: box-shadow 0.2s, transform 0.2s;
+    min-width: 160px;
+    max-width: 180px;
+    flex: 1 1 160px;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 210px;
+    height: 210px;
+}
+
+.blog-card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.13);
+    transform: translateY(-4px) scale(1.03);
+}
+
+.blog-card h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #222;
+    letter-spacing: 1px;
+}
+
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.blog-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-top: 0;
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+}
+
+.edit-btn, .delete-btn {
+    padding: 0.4rem 1.1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.edit-btn {
+    background: #1976d2;
+    color: #fff;
+}
+.edit-btn:hover {
+    background: #125ea2;
+}
+
+.delete-btn {
+    background: #e53935;
+    color: #fff;
+}
+.delete-btn:hover {
+    background: #b71c1c;
+}
+
+.login-container {
+    max-width: 350px;
+    margin: 3rem auto 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    padding: 2.5rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Remove flex: 1 and justify-content: center to avoid stretching */
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.login-form label {
+    font-size: 1rem;
+    color: #222;
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}
+
+.login-form input {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.login-form input:focus {
+    border: 1.5px solid #1976d2;
+}
+
+.login-btn {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+}
+
+.login-btn:hover {
+    background: #125ea2;
+}
+
+.create-blog-container {
+    max-width: 1000px;
+    width: 95vw;
+    margin: 3rem auto 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    padding: 2.5rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 8rem; /* Increase bottom padding to ensure button is above footer */
+}
+
+.create-blog-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.create-blog-form label {
+    font-size: 1rem;
+    color: #222;
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}
+
+.create-blog-form input {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.create-blog-form input:focus {
+    border: 1.5px solid #1976d2;
+}
+
+.create-blog-btn {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+}
+
+.create-blog-btn:hover {
+    background: #125ea2;
+}
+
+#create-blog-form-contents {
+    min-height: 7rem;
+    height: 10rem;
+}
+
+.styled-blog {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+    height: 500px;
+    max-width:50%;
+    margin-left: 300px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.blog-header {
+    border-bottom: 1.5px solid #eee;
+    padding-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.blog-title {
+    font-size: 2.3rem;
+    font-family: 'Cinzel Decorative', cursive, serif;
+    margin-bottom: 0.5rem;
+    color: #222;
+    text-align: left;
+}
+
+.blog-meta {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 1.1rem;
+}
+
+.blog-intro {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 0.7rem;
+    font-style: italic;
+}
+
+.blog-content {
+    font-size: 1.13rem;
+    color: #222;
+    line-height: 1.7;
+    margin-bottom: 2.2rem;
+    text-align: justify;
+}
+
+.blog-footer {
+    border-top: 1.5px solid #eee;
+    padding-top: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.blog-conclusion {
+    font-size: 1.15rem;
+    color: #1976d2;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 800px) {
+  .styled-blog {
+    padding: 1.2rem 0.7rem;
+    max-width: 98vw;
+  }
+  .blog-title {
+    font-size: 1.5rem;
+  }
+}
